@@ -1,0 +1,11 @@
+services:
+  php:
+    build:
+      context: ./php
+    image: mydemo:2.0
+  lb:
+    build:
+      context: ./lb
+    ports:
+      - "8888:80"
+    
