@@ -1,0 +1,7 @@
+services:
+  react:
+    image: react:1.0
+    build:
+      context: .
+    ports:
+      - "7777:80"
