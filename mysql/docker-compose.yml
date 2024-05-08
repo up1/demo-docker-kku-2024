@@ -1,12 +1,12 @@
 services:
   mysql:
     image: mysql:8.4.0
+    container_name: db
     environment:
       - MYSQL_DATABASE=hello
       - MYSQL_USER=user01
       - MYSQL_PASSWORD=password01
       - MYSQL_RANDOM_ROOT_PASSWORD=true
     volumes:
-      - xyz:/var/lib/mysql
-volumes:
-  xyz:
+      - ./table.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./data.sql:/docker-entrypoint-initdb.d/2.sql
