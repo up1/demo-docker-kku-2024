@@ -1,4 +1,12 @@
 services:
+  ui-test:
+    build:
+      context: ./ui-test
+    ports:
+      - "8080:8080"
+    depends_on:
+      web:
+          condition: service_healthy
   web:
     build:
       context: ./python
