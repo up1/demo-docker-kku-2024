@@ -19,7 +19,7 @@ services:
     environment:
       - MYSQL_DATABASE=hello
       - MYSQL_USER=user01
-      - MYSQL_PASSWORD=password01
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-password01}
       - MYSQL_RANDOM_ROOT_PASSWORD=true
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uuser01", "-ppassword01"]
