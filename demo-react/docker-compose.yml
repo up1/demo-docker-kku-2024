@@ -5,3 +5,9 @@ services:
       context: .
     ports:
       - "7777:80"
+  react2:
+    build:
+      context: .
+      dockerfile: Dockerfile-2
+    ports:
+      - "8888:80"

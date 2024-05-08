@@ -3,6 +3,6 @@ services:
     build:
       context: .
     image: mydemo:2.0
-    # ports:
-    #   - "8888:80"
+    ports:
+      - "8888:80"
     
