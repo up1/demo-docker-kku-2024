@@ -4,6 +4,14 @@ services:
       context: ./python
     ports:
       - "5000:5000"
+    healthcheck:
+      test: "curl -f localhost:5000"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    depends_on:
+      db:
+          condition: service_healthy
 
   db:
     build:
@@ -13,3 +21,8 @@ services:
       - MYSQL_USER=user01
       - MYSQL_PASSWORD=password01
       - MYSQL_RANDOM_ROOT_PASSWORD=true
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uuser01", "-ppassword01"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
