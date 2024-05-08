@@ -1,0 +1,7 @@
+services:
+  pm2:
+    build:
+      context: .
+    image: api-node:1.0
+    ports:
+      - "3000:3000"
