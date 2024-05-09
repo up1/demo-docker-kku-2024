@@ -36,3 +36,5 @@ Leave from docker swarm mode
 ```
 docker swarm leave --force
 ```
+
+Demo
