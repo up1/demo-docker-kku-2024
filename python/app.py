@@ -1,3 +1,4 @@
+import socket
 from flask import Flask
 app = Flask(__name__)
 
@@ -9,4 +10,5 @@ cnx.close()
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    hostname = socket.gethostname()
+    return f"<p>Hello, {hostname}!</p>"

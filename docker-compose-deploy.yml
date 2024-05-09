@@ -1,16 +1,6 @@
 services:
-  ui-test:
-    build:
-      context: ./ui-test
-    ports:
-      - "8080:8080"
-    depends_on:
-      web:
-          condition: service_healthy
   web:
     image: demo4-web:1.0
-    build:
-      context: ./python
     ports:
       - "5000:5000"
     healthcheck:
@@ -18,14 +8,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    depends_on:
-      db:
-          condition: service_healthy
 
   db:
     image: demo4-db:1.0
-    build:
-      context: ./mysql
     environment:
       - MYSQL_DATABASE=hello
       - MYSQL_USER=user01
